@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800|Roboto:300,400,700&display=swap" rel="stylesheet">
     <script defer src="assets/fontawesome/js/all.min.js"></script>
     <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/animations-3d.css">
 </head>
 <body>    
 	<header id="header" class="header fixed-top">	    
@@ -41,6 +42,17 @@
 	</header>
 	
 	<div id="hero-block" class="hero-block">
+		<!-- Animated Geometric Background -->
+		<div class="geometric-bg">
+			<div class="geometric-shape shape-1"></div>
+			<div class="geometric-shape shape-2"></div>
+			<div class="geometric-shape shape-3"></div>
+			<div class="particle particle-1"></div>
+			<div class="particle particle-2"></div>
+			<div class="particle particle-3"></div>
+			<div class="particle particle-4"></div>
+		</div>
+		
 		<div id="hero-carousel" class="hero-carousel carousel slide carousel-fade" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item-1 carousel-item active">
@@ -57,7 +69,7 @@
 				<h1 class="hero-heading mb-2">Best Practices Summit</h1>
 				<div class="hero-meta mb-3"><i class="far fa-calendar-alt me-2"></i>15 Jan <i class="fas fa-map-marker-alt mx-2"></i>Gandhinagar</div>
 				<div class="hero-intro mb-4">CXO Power Networking Meetup <br>For Cybersecurity, FinTech, HealthTech & IT Leaders</div>
-				<div class="hero-cta"><a class="btn btn-primary btn-lg scrollto" href="#tickets-section">Request Invite</a></div>
+				<div class="hero-cta"><a class="btn btn-primary btn-lg scrollto ripple" href="#tickets-section">Request Invite</a></div>
 			</div>
 		</div>
 	</div>
@@ -949,7 +961,8 @@
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
 	<script src="assets/plugins/smoothscroll.min.js"></script>
 	<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
-	<script src="assets/js/main.js"></script>  
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/animations-3d.js"></script>
 
 </body>
 </html> 

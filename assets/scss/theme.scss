@@ -1,16 +1,20 @@
 /*************************** Theme Colours****************************/
-// Define theme colour scheme
-$theme-color-primary: #098dcf;
-$theme-color-secondary: #EC645E;
-$theme-text-color-primary: #141c25;
+// Define theme colour scheme - Purple Gradient Theme
+$theme-color-primary: #7c3aed;
+$theme-color-primary-dark: #6d28d9;
+$theme-color-primary-light: #a78bfa;
+$theme-color-secondary: #ec4899;
+$theme-purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$theme-purple-gradient-reverse: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+$theme-text-color-primary: #1a202c;
 $theme-text-color-secondary: lighten($theme-text-color-primary, 25%);
 $theme-text-color-light: lighten($theme-text-color-primary, 40%);
-$theme-bg-light: #f0f6fa;
+$theme-bg-light: #f8f4ff;
 $theme-bg-primary: $theme-color-primary;
-$theme-bg-dark: $theme-text-color-primary;
-$theme-border-color:  #e5ecf4;
-$theme-color-tick: #5ab66e;
-$smoky-white: #f5f5f5;
+$theme-bg-dark: #1a202c;
+$theme-border-color:  #e9d5ff;
+$theme-color-tick: #10b981;
+$smoky-white: #faf5ff;
 $single-col-max: 800px;
 
 /*************************** Variables Section. *****************************/
