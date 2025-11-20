@@ -12895,6 +12895,23 @@ a.theme-link:hover {
 .schedule-tab-content .item .meta .time {
   font-size: 1.25rem;
   color: #7c3aed;
+  margin-bottom: 0.5rem;
+}
+.schedule-tab-content .item .meta .profile {
+  margin-top: 0.5rem;
+}
+.schedule-tab-content .item .meta .profile .name {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+.schedule-tab-content .item .meta .profile .meta {
+  position: static;
+  width: auto;
+  padding: 0;
+  font-size: 0.7rem;
+  opacity: 0.8;
 }
 .schedule-tab-content .item .meta .location {
   font-weight: bold;
@@ -13097,7 +13114,8 @@ a.theme-link:hover {
     position: static;
     width: auto;
   }
-  .schedule-tab-content .tab-pane:after, .schedule-tab-content .item:after {
+  .schedule-tab-content .tab-pane:after,
+  .schedule-tab-content .item:after {
     display: none;
   }
   .schedule-tab-content .item .content {
