@@ -11873,6 +11873,42 @@ textarea.form-control-lg {
  * Website: http://themes.3rdwavemedia.com/
  * Twitter: @3rdwave_themes
 */
+/* ============= CSS Custom Properties / Variables ============= */
+:root {
+  /* Theme Colors */
+  --theme-color-primary: #7c3aed;
+  --theme-color-primary-dark: #6d28d9;
+  --theme-color-primary-light: #a78bfa;
+  --theme-color-secondary: #ec4899;
+  --theme-color-gradient-1: #667eea;
+  --theme-color-gradient-2: #764ba2;
+  /* Gradients */
+  --theme-purple-gradient: linear-gradient(135deg, var(--theme-color-gradient-1) 0%, var(--theme-color-gradient-2) 100%);
+  --theme-purple-gradient-reverse: linear-gradient(135deg, var(--theme-color-gradient-2) 0%, var(--theme-color-gradient-1) 100%);
+  --theme-purple-gradient-alt: linear-gradient(135deg, var(--theme-color-gradient-2) 0%, var(--theme-color-secondary) 100%);
+  --theme-purple-gradient-light: linear-gradient(135deg, var(--theme-color-primary-light) 0%, var(--theme-color-gradient-1) 100%);
+  --theme-gradient-90deg: linear-gradient(90deg, var(--theme-color-gradient-1), var(--theme-color-gradient-2));
+  --theme-gradient-180deg: linear-gradient(180deg, var(--theme-color-gradient-1), var(--theme-color-gradient-2));
+  /* Shadow Colors */
+  --shadow-primary-sm: 0 4px 15px rgba(124, 58, 237, 0.3);
+  --shadow-primary-md: 0 10px 30px rgba(124, 58, 237, 0.4);
+  --shadow-primary-lg: 0 15px 35px rgba(124, 58, 237, 0.5);
+  --shadow-primary-xl: 0 20px 40px rgba(124, 58, 237, 0.3);
+  --shadow-primary-2xl: 0 25px 50px rgba(124, 58, 237, 0.4);
+  --shadow-pink-sm: 0 0 20px rgba(236, 72, 153, 0.4);
+  --shadow-pink-md: 0 0 40px rgba(236, 72, 153, 0.2);
+  /* Transition Timings */
+  --transition-standard: all 0.3s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-smooth-slow: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Blur Values */
+  --blur-sm: blur(25px);
+  --blur-md: blur(30px);
+  --blur-lg: blur(40px);
+  /* Border Radius */
+  --border-radius-organic-1: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
 /* ============= Theme Mixins ============= */
 /* ====== 3D Animation Keyframes ====== */
 @keyframes float {
@@ -11902,7 +11938,7 @@ textarea.form-control-lg {
 @keyframes pulse3D {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+    box-shadow: var(--shadow-primary-md);
   }
   50% {
     transform: scale(1.05);
@@ -12008,20 +12044,20 @@ textarea.form-control-lg {
 }
 /* ====== 3D Utility Classes ====== */
 .hover-lift {
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: var(--transition-smooth);
 }
 .hover-lift:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3) !important;
+  box-shadow: var(--shadow-primary-xl) !important;
 }
 
 .hover-3d {
   perspective: 1000px;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: var(--transition-smooth-slow);
 }
 .hover-3d:hover {
   transform: rotateY(5deg) rotateX(5deg) scale(1.05);
-  box-shadow: 0 25px 50px rgba(124, 58, 237, 0.4);
+  box-shadow: var(--shadow-primary-2xl);
 }
 
 .float-animation {
@@ -12167,163 +12203,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ====== 3D Animation Keyframes ====== */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-@keyframes floatReverse {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(20px);
-  }
-}
-@keyframes rotate3D {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
-}
-@keyframes pulse3D {
-  0%, 100% {
-    transform: scale(1) translateZ(0);
-  }
-  50% {
-    transform: scale(1.05) translateZ(10px);
-  }
-}
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translateZ(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05) translateZ(10px);
-  }
-  70% {
-    transform: scale(0.9) translateZ(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateZ(0);
-  }
-}
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%) rotateY(-30deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) rotateY(0deg);
-    opacity: 1;
-  }
-}
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%) rotateY(30deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) rotateY(0deg);
-    opacity: 1;
-  }
-}
-@keyframes particleFloat {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(10px, -10px) rotate(90deg);
-  }
-  50% {
-    transform: translate(-5px, -20px) rotate(180deg);
-  }
-  75% {
-    transform: translate(-10px, -10px) rotate(270deg);
-  }
-}
-/* ====== 3D Utility Classes ====== */
-.hover-lift {
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.hover-lift:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3) !important;
-}
-
-.hover-3d {
-  perspective: 1000px;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.hover-3d:hover {
-  transform: rotateY(5deg) rotateX(5deg) scale(1.05);
-  box-shadow: 0 25px 50px rgba(124, 58, 237, 0.4);
-}
-
-.float-animation {
-  animation: float 6s ease-in-out infinite;
-}
-
-.float-reverse-animation {
-  animation: floatReverse 6s ease-in-out infinite;
-}
-
-.rotate-3d {
-  animation: rotate3D 20s linear infinite;
-}
-
-.pulse-3d {
-  animation: pulse3D 3s ease-in-out infinite;
-}
-
-.gradient-shift {
-  background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
-}
-
-.shimmer-effect {
-  position: relative;
-  overflow: hidden;
-}
-.shimmer-effect::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 3s infinite;
-}
-
+/* Note: All keyframes and 3D utility classes are now in _animations.scss to avoid duplication */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Montserrat", sans-serif;
   color: #1a202c;
@@ -12361,7 +12241,6 @@ a.theme-link:hover {
 }
 .btn {
   border: none;
-  color: white;
   font-family: "Montserrat", sans-serif;
   color: #fff;
 }
@@ -13173,5 +13052,3 @@ a.theme-link:hover {
     transform: scale(1);
   }
 }
-
-/*# sourceMappingURL=theme.css.map */

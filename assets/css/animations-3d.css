@@ -2,6 +2,47 @@
    3D Animations & Purple Theme Enhancements
    ======================================== */
 
+/* CSS Variables */
+:root {
+  /* Theme Colors */
+  --theme-color-primary: #7c3aed;
+  --theme-color-primary-dark: #6d28d9;
+  --theme-color-primary-light: #a78bfa;
+  --theme-color-secondary: #ec4899;
+  --theme-color-gradient-1: #667eea;
+  --theme-color-gradient-2: #764ba2;
+
+  /* Gradients */
+  --theme-purple-gradient: linear-gradient(135deg, var(--theme-color-gradient-1) 0%, var(--theme-color-gradient-2) 100%);
+  --theme-purple-gradient-reverse: linear-gradient(135deg, var(--theme-color-gradient-2) 0%, var(--theme-color-gradient-1) 100%);
+  --theme-purple-gradient-alt: linear-gradient(135deg, var(--theme-color-gradient-2) 0%, var(--theme-color-secondary) 100%);
+  --theme-purple-gradient-light: linear-gradient(135deg, var(--theme-color-primary-light) 0%, var(--theme-color-gradient-1) 100%);
+  --theme-gradient-90deg: linear-gradient(90deg, var(--theme-color-gradient-1), var(--theme-color-gradient-2));
+  --theme-gradient-180deg: linear-gradient(180deg, var(--theme-color-gradient-1), var(--theme-color-gradient-2));
+
+  /* Shadow Colors */
+  --shadow-primary-sm: 0 4px 15px rgba(124, 58, 237, 0.3);
+  --shadow-primary-md: 0 10px 30px rgba(124, 58, 237, 0.4);
+  --shadow-primary-lg: 0 15px 35px rgba(124, 58, 237, 0.5);
+  --shadow-primary-xl: 0 20px 40px rgba(124, 58, 237, 0.3);
+  --shadow-primary-2xl: 0 25px 50px rgba(124, 58, 237, 0.4);
+  --shadow-pink-sm: 0 0 20px rgba(236, 72, 153, 0.4);
+  --shadow-pink-md: 0 0 40px rgba(236, 72, 153, 0.2);
+
+  /* Transition Timings */
+  --transition-standard: all 0.3s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-smooth-slow: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Blur Values */
+  --blur-sm: blur(25px);
+  --blur-md: blur(30px);
+  --blur-lg: blur(40px);
+
+  /* Border Radius */
+  --border-radius-organic-1: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
 /* Animated Geometric Background Shapes */
 .hero-block {
   position: relative;
@@ -26,34 +67,34 @@
 .shape-1 {
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-purple-gradient);
   border-radius: 50%;
   top: 10%;
   right: 10%;
   animation: float 8s ease-in-out infinite;
-  filter: blur(40px);
+  filter: var(--blur-lg);
 }
 
 .shape-2 {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, #764ba2 0%, #ec4899 100%);
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: var(--theme-purple-gradient-alt);
+  border-radius: var(--border-radius-organic-1);
   bottom: 20%;
   left: 5%;
   animation: floatReverse 10s ease-in-out infinite;
-  filter: blur(30px);
+  filter: var(--blur-md);
 }
 
 .shape-3 {
   width: 150px;
   height: 150px;
-  background: linear-gradient(135deg, #a78bfa 0%, #667eea 100%);
+  background: var(--theme-purple-gradient-light);
   transform: rotate(45deg);
   top: 50%;
   right: 30%;
   animation: rotate3D 15s linear infinite;
-  filter: blur(25px);
+  filter: var(--blur-sm);
 }
 
 /* Floating Particles */
@@ -102,10 +143,10 @@
 .btn {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-purple-gradient);
   border: none;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-primary-sm);
 }
 
 .btn-primary::before,
@@ -132,7 +173,7 @@
 .btn-secondary:hover,
 .btn:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.5);
+  box-shadow: var(--shadow-primary-lg);
 }
 
 .btn-primary:active,
@@ -143,13 +184,13 @@
 
 /* Card 3D Hover Effects */
 .card {
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: var(--transition-smooth);
   transform-style: preserve-3d;
 }
 
 .hover-lift:hover {
   transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(124, 58, 237, 0.3) !important;
+  box-shadow: var(--shadow-primary-2xl) !important;
 }
 
 /* Animated Stats Counter */
@@ -164,11 +205,11 @@
 
 /* Purple Glow Effects */
 .glow-purple {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4), 0 0 40px rgba(124, 58, 237, 0.2);
+  box-shadow: var(--shadow-pink-sm), var(--shadow-pink-md);
 }
 
 .glow-pink {
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2);
+  box-shadow: var(--shadow-pink-sm), var(--shadow-pink-md);
 }
 
 /* Section Entrance Animations */
@@ -189,7 +230,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: var(--theme-gradient-90deg);
   border-radius: 2px;
   animation: shimmer 3s infinite;
 }
@@ -201,7 +242,7 @@
 
 .countdown-box span {
   display: inline-block;
-  transition: all 0.3s ease;
+  transition: var(--transition-standard);
 }
 
 .countdown-box span:hover {
@@ -209,7 +250,7 @@
 }
 
 .countdown-box .number {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--theme-purple-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -229,7 +270,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  background: linear-gradient(135deg, var(--theme-color-gradient-1) 0%, var(--theme-color-gradient-2) 50%, var(--theme-color-gradient-1) 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
   opacity: 1;
@@ -242,7 +283,7 @@
 
 /* Schedule Items 3D Effect */
 .schedule-tab-content .item {
-  transition: all 0.3s ease;
+  transition: var(--transition-standard);
   position: relative;
 }
 
@@ -258,7 +299,7 @@
   top: 0;
   height: 100%;
   width: 3px;
-  background: linear-gradient(180deg, #667eea, #764ba2);
+  background: var(--theme-gradient-180deg);
   transform: scaleY(0);
   transition: transform 0.3s ease;
 }
@@ -269,13 +310,13 @@
 
 /* Icon Boxes with 3D Effect */
 .icon-box {
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  transition: var(--transition-standard);
+  background: var(--theme-purple-gradient) !important;
 }
 
 .icon-box:hover {
   transform: rotateY(15deg) scale(1.1);
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+  box-shadow: var(--shadow-primary-md);
 }
 
 /* Speakers Card Enhancement */
@@ -296,24 +337,15 @@
 .animated-border {
   position: relative;
   background: linear-gradient(white, white) padding-box,
-    linear-gradient(135deg, #667eea, #764ba2) border-box;
+    var(--theme-purple-gradient) border-box;
   border: 3px solid transparent;
   border-radius: 10px;
 }
 
 /* Loading Animation */
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .loading-spinner {
   border: 4px solid rgba(124, 58, 237, 0.2);
-  border-top: 4px solid #7c3aed;
+  border-top: 4px solid var(--theme-color-primary);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -324,24 +356,12 @@
 /* Ripple is now handled via JavaScript only */
 
 /* Stagger Animation Delays */
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-.stagger-6 {
-  animation-delay: 0.6s;
-}
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
 
 /* Mobile Optimizations */
 @media (max-width: 768px) {
@@ -356,65 +376,39 @@
   }
 }
 
-/* Keyframe Animations */
+/* ============================================
+   Keyframe Animations (Consolidated)
+   ============================================ */
+
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 @keyframes floatReverse {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
 }
 
 @keyframes rotate3D {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
+  0% { transform: perspective(1000px) rotateY(0deg); }
+  100% { transform: perspective(1000px) rotateY(360deg); }
 }
 
 @keyframes pulse3D {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
 }
 
 @keyframes fadeInUp {
@@ -429,8 +423,7 @@
 }
 
 @keyframes particleFloat {
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) rotate(0deg);
     opacity: 0.6;
   }
@@ -447,3 +440,9 @@
     opacity: 1;
   }
 }
+
+@keyframes loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
