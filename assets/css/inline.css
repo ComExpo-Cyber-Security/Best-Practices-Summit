@@ -68,5 +68,32 @@
   border-radius: 10px;
 }
 
-/* End of inline.css */
+/* Override: ensure hero carousel background images are fully visible */
+/* Using a specific selector to beat theme.css .hero-block rules */
+.hero-block .hero-carousel .carousel-item,
+.hero-carousel .carousel-item-1,
+.hero-carousel .carousel-item-2,
+.hero-carousel .carousel-item-3 {
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important; /* fill the area edge-to-edge (may crop) */
+  width: 100% !important;
+  /* Keep the carousel the same height as the hero block so the image has space to show */
+  min-height: 480px !important;
+}
 
+/* On very tall screens prefer a slightly larger hero area */
+@media (min-height: 900px) {
+  .hero-block .hero-carousel .carousel-item {
+    min-height: 620px !important;
+  }
+}
+
+/* Small screens: reduce min-height so content doesn't push too far down */
+@media (max-width: 575px) {
+  .hero-block .hero-carousel .carousel-item {
+    min-height: 360px !important;
+  }
+}
+
+/* End of inline.css */
