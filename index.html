@@ -84,6 +84,11 @@
                               >
                           </li>
                           <li class="nav-item">
+                              <a class="nav-link scrollto" href="#badge-section"
+                              >Create Badge</a
+                              >
+                          </li>
+                          <li class="nav-item">
                               <a class="nav-link scrollto" href="#venue-section">Venue</a>
                           </li>
                           <li class="nav-item">
@@ -136,7 +141,7 @@
         <div class="hero-text-block">
           <h1 class="hero-heading mb-2">Best Practices Summit</h1>
           <div class="hero-meta mb-3">
-            <i class="far fa-calendar-alt me-2"></i>15 Jan
+            <i class="far fa-calendar-alt me-2"></i>24 Jan
             <i class="fas fa-map-marker-alt mx-2"></i>Gandhinagar
           </div>
           <div class="hero-intro mb-4">
@@ -144,9 +149,7 @@
             HealthTech & IT Leaders
           </div>
           <div class="hero-cta">
-            <a class="btn btn-primary btn-lg scrollto" href="https://luma.com/n9g6rbip"
-              >Request Invite</a
-            >
+            <a class="btn btn-primary btn-lg" href="https://luma.com/n9g6rbip">Request Invite</a>
           </div>
         </div>
       </div>
@@ -1096,6 +1099,238 @@
         </div>
     </section>
 
+    <section id="badge-section" class="badge-section section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative; overflow: hidden;">
+      <!-- Animated background elements -->
+      <div style="position: absolute; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; top: -100px; left: -100px; animation: float 6s ease-in-out infinite;"></div>
+      <div style="position: absolute; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; bottom: -80px; right: -80px; animation: float 8s ease-in-out infinite;"></div>
+      
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="text-center mb-5">
+          <h3 class="section-heading text-white mb-3" style="font-size: 2.5rem; font-weight: 700;">
+            <i class="fas fa-id-card-alt me-3" style="color: #ffd700;"></i>Create Your Event Badge
+          </h3>
+          <p class="text-white" style="font-size: 1.1rem; max-width: 600px; margin: 0 auto; opacity: 0.95;">
+            Design your personalized badge in seconds! Upload your photo, choose your role, and download your custom badge.
+          </p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+          <!-- Left: Upload & Controls -->
+          <div class="col-12 col-lg-5">
+            <div class="card shadow-lg border-0" style="border-radius: 20px; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);">
+              <div class="card-body p-4 p-lg-5">
+                <h5 class="fw-bold mb-4" style="color: #667eea; font-size: 1.5rem;">
+                  <i class="fas fa-edit me-2"></i>Badge Details
+                </h5>
+                
+                <!-- Photo Upload - Featured -->
+                <div class="mb-4">
+                  <label class="form-label fw-bold" style="color: #333; font-size: 1rem;">
+                    <i class="fas fa-camera me-2" style="color: #667eea;"></i>Upload Your Photo
+                  </label>
+                  <div class="photo-upload-area" style="border: 3px dashed #667eea; border-radius: 15px; padding: 30px; text-align: center; background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%); cursor: pointer; transition: all 0.3s ease;" onclick="document.getElementById('badgePhoto').click()">
+                    <i class="fas fa-cloud-upload-alt mb-3" style="font-size: 3rem; color: #667eea;"></i>
+                    <p class="mb-2 fw-bold" style="color: #667eea;">Click to upload or drag & drop</p>
+                    <small class="text-muted d-block">Square photo recommended (min 400x400px)</small>
+                    <small class="text-muted">JPG, PNG, or GIF</small>
+                    <input type="file" id="badgePhoto" class="d-none" accept="image/*">
+                  </div>
+                  <div id="photoPreview" class="mt-3 text-center d-none">
+                    <img id="photoPreviewImg" src="" alt="Preview" style="max-width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #667eea;">
+                    <p class="text-success mt-2 mb-0 small"><i class="fas fa-check-circle me-1"></i>Photo uploaded successfully!</p>
+                  </div>
+                </div>
+
+                <!-- Name Input -->
+                <div class="mb-4">
+                  <label class="form-label fw-bold" style="color: #333;">
+                    <i class="fas fa-user me-2" style="color: #667eea;"></i>Your Name
+                  </label>
+                  <input type="text" id="badgeName" class="form-control form-control-lg" placeholder="John Doe" maxlength="25" style="border-radius: 12px; border: 2px solid #e0e0e0; padding: 12px 20px;">
+                </div>
+
+                <!-- Organization Input -->
+                <div class="mb-4">
+                  <label class="form-label fw-bold" style="color: #333;">
+                    <i class="fas fa-building me-2" style="color: #667eea;"></i>Organization <span class="badge bg-secondary" style="font-size: 0.7rem;">Optional</span>
+                  </label>
+                  <input type="text" id="badgeOrg" class="form-control form-control-lg" placeholder="Your Company" maxlength="30" style="border-radius: 12px; border: 2px solid #e0e0e0; padding: 12px 20px;">
+                </div>
+
+                <!-- Badge Layout Selection -->
+                <div class="mb-4">
+                  <label class="form-label fw-bold" style="color: #333;">
+                    <i class="fas fa-th-large me-2" style="color: #667eea;"></i>Badge Layout
+                  </label>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <div class="form-check layout-option" style="flex: 1; min-width: 100px;">
+                      <input class="form-check-input d-none" type="radio" name="badgeLayout" id="layoutPortrait" value="portrait" checked>
+                      <label class="form-check-label w-100 text-center p-3" for="layoutPortrait" style="border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">
+                        <div style="width: 30px; height: 45px; border: 2px solid #667eea; margin: 0 auto 8px; border-radius: 4px;"></div>
+                        <small class="fw-bold">Portrait</small>
+                        <small class="d-block text-muted" style="font-size: 0.7rem;">600x900</small>
+                      </label>
+                    </div>
+                    <div class="form-check layout-option" style="flex: 1; min-width: 100px;">
+                      <input class="form-check-input d-none" type="radio" name="badgeLayout" id="layoutLandscape" value="landscape">
+                      <label class="form-check-label w-100 text-center p-3" for="layoutLandscape" style="border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">
+                        <div style="width: 45px; height: 30px; border: 2px solid #667eea; margin: 0 auto 8px; border-radius: 4px;"></div>
+                        <small class="fw-bold">Landscape</small>
+                        <small class="d-block text-muted" style="font-size: 0.7rem;">900x600</small>
+                      </label>
+                    </div>
+                    <div class="form-check layout-option" style="flex: 1; min-width: 100px;">
+                      <input class="form-check-input d-none" type="radio" name="badgeLayout" id="layoutSquare" value="square">
+                      <label class="form-check-label w-100 text-center p-3" for="layoutSquare" style="border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">
+                        <div style="width: 38px; height: 38px; border: 2px solid #667eea; margin: 0 auto 8px; border-radius: 4px;"></div>
+                        <small class="fw-bold">Square</small>
+                        <small class="d-block text-muted" style="font-size: 0.7rem;">800x800</small>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Role Selection -->
+                  <div class="mb-4">
+                    <label class="form-label fw-bold" style="color: #333;">
+                      <i class="fas fa-award me-2" style="color: #667eea;"></i>Select Your Role
+                    </label>
+                    <div class="role-selector d-flex flex-column gap-3">
+                      <div class="form-check role-option" style="border: 2px solid #e0e0e0; border-radius: 12px; padding: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="document.getElementById('roleSpeaker').click()">
+                        <input class="form-check-input" type="radio" name="badgeRole" id="roleSpeaker" value="speaker" checked style="width: 20px; height: 20px; cursor: pointer;">
+                        <label class="form-check-label ms-3 w-100" for="roleSpeaker" style="cursor: pointer;">
+                          <div class="d-flex align-items-center">
+                            <i class="fas fa-microphone-alt me-3" style="font-size: 1.8rem; color: #667eea; width: 40px;"></i>
+                            <div>
+                              <strong style="font-size: 1.1rem; color: #333;">Speaker</strong>
+                              <div class="text-muted small">Present at the summit</div>
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="form-check role-option" style="border: 2px solid #e0e0e0; border-radius: 12px; padding: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="document.getElementById('roleAttendee').click()">
+                        <input class="form-check-input" type="radio" name="badgeRole" id="roleAttendee" value="attendee" style="width: 20px; height: 20px; cursor: pointer;">
+                        <label class="form-check-label ms-3 w-100" for="roleAttendee" style="cursor: pointer;">
+                          <div class="d-flex align-items-center">
+                            <i class="fas fa-users me-3" style="font-size: 1.8rem; color: #667eea; width: 40px;"></i>
+                            <div>
+                              <strong style="font-size: 1.1rem; color: #333;">Attendee</strong>
+                              <div class="text-muted small">Participate in the event</div>
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="form-check role-option" style="border: 2px solid #e0e0e0; border-radius: 12px; padding: 15px; cursor: pointer; transition: all 0.3s ease;" onclick="document.getElementById('roleVolunteer').click()">
+                        <input class="form-check-input" type="radio" name="badgeRole" id="roleVolunteer" value="volunteer" style="width: 20px; height: 20px; cursor: pointer;">
+                        <label class="form-check-label ms-3 w-100" for="roleVolunteer" style="cursor: pointer;">
+                          <div class="d-flex align-items-center">
+                            <i class="fas fa-hands-helping me-3" style="font-size: 1.8rem; color: #667eea; width: 40px;"></i>
+                            <div>
+                              <strong style="font-size: 1.1rem; color: #333;">Volunteer</strong>
+                              <div class="text-muted small">Help organize the summit</div>
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>                <!-- Action Buttons -->
+                <div class="d-grid gap-3 mt-4">
+                  <button id="generateBadge" class="btn btn-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 12px; padding: 15px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(102,126,234,0.4); transition: all 0.3s ease;">
+                    <i class="fas fa-magic me-2"></i>Generate My Badge
+                  </button>
+                  <button id="downloadBadge" class="btn btn-success btn-lg" disabled style="border-radius: 12px; padding: 15px; font-weight: 700;">
+                    <i class="fas fa-download me-2"></i>Download Badge (PNG)
+                  </button>
+                  <button id="resetBadge" class="btn btn-outline-secondary" style="border-radius: 12px; padding: 12px;">
+                    <i class="fas fa-redo me-2"></i>Start Over
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Badge Preview -->
+          <div class="col-12 col-lg-7">
+            <div class="card shadow-lg border-0" style="border-radius: 20px; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);">
+              <div class="card-body p-4 p-lg-5">
+                <h5 class="fw-bold mb-4" style="color: #667eea; font-size: 1.5rem;">
+                  <i class="fas fa-eye me-2"></i>Badge Preview
+                </h5>
+                <div class="badge-preview-container text-center p-4" style="background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%); border-radius: 15px; min-height: 500px; display: flex; align-items: center; justify-content: center;">
+                  <div>
+                    <canvas id="badgeCanvas" width="600" height="900" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);"></canvas>
+                    <p class="text-muted mt-4 mb-0" id="previewHint">
+                      <i class="fas fa-info-circle me-2"></i>Fill in your details and click "Generate My Badge"
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        .photo-upload-area:hover {
+          background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(102,126,234,0.2);
+        }
+        
+        #generateBadge:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102,126,234,0.5) !important;
+        }
+        
+        .form-control:focus {
+          border-color: #667eea !important;
+          box-shadow: 0 0 0 0.2rem rgba(102,126,234,0.25) !important;
+        }
+        
+        .role-option:hover {
+          border-color: #667eea !important;
+          background: rgba(102, 126, 234, 0.05);
+          transform: translateX(5px);
+        }
+        
+        .role-option:has(input:checked) {
+          border-color: #667eea !important;
+          background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Layout option styling */
+        .layout-option label {
+          transition: all 0.3s ease;
+        }
+
+        .layout-option label:hover {
+          border-color: #667eea !important;
+          background: rgba(102, 126, 234, 0.05) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .layout-option:has(input:checked) label {
+          border-color: #667eea !important;
+          background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%) !important;
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+          transform: scale(1.02);
+        }
+
+        .layout-option:has(input:checked) label div {
+          border-color: #667eea !important;
+          background: rgba(102, 126, 234, 0.1);
+        }
+      </style>
+    </section>
 
     <section
       id="venue-section"
@@ -1513,5 +1748,6 @@
     <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/animations-3d.js"></script>
+    <script src="assets/js/badge-generator.js"></script>
   </body>
 </html>
