@@ -34,70 +34,107 @@
     <link rel="stylesheet" href="assets/css/animations-3d.css" />
   </head>
   <body>
-    <header id="header" class="header fixed-top">
+  <header id="header" class="header fixed-top">
       <div class="branding">
-        <div class="container-fluid">
-          <nav class="main-nav navbar navbar-expand-lg">
-            <div class="site-logo">
-                <a class="scrollto" href="#hero-block">
-                    <img
-                            class="logo-icon"
-                            src="assets/images/BPS/logo.png"
-                            alt="logo"
-                            style="width:220px; height:auto;"
-                    />
-                </a>
-            </div>
+          <div class="container-fluid">
+              <nav class="main-nav navbar navbar-expand-lg">
+                  <div class="site-logo">
+                      <a class="scrollto" href="#hero-block">
+                          <img
+                                  class="logo-icon"
+                                  src="assets/images/BPS/logo.png"
+                                  alt="logo"
+                                  style="width:220px; height:auto;"
+                          />
+                      </a>
+                  </div>
 
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navigation"
-              aria-controls="navigation"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+                  <button
+                          class="navbar-toggler"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#navigation"
+                          aria-controls="navigation"
+                          aria-expanded="false"
+                          aria-label="Toggle navigation"
+                  >
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
 
-            <div
-              id="navigation"
-              class="navbar-collapse collapse justify-content-lg-end me-lg-3"
-            >
-              <ul class="nav navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link scrollto" href="#about-section">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scrollto" href="#speakers-section"
-                    >Speakers</a
+                  <div
+                          id="navigation"
+                          class="navbar-collapse collapse justify-content-lg-end me-lg-3"
                   >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scrollto" href="#schedule-section"
-                    >Schedule</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scrollto" href="#tickets-section"
-                    >Registration</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scrollto" href="#venue-section">Venue</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scrollto" href="#sponsors-section"
-                    >Sponsors</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
+                      <ul class="nav navbar-nav">
+                          <li class="nav-item">
+                              <a class="nav-link scrollto" href="#about-section">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link scrollto" href="#speakers-section"
+                              >Speakers</a
+                              >
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link scrollto" href="#schedule-section"
+                              >Schedule</a
+                              >
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link scrollto" href="#tickets-section"
+                              >Registration</a
+                              >
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link scrollto" href="#venue-section">Venue</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link scrollto" href="#sponsors-section"
+                              >Sponsors</a
+                              >
+                          </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="joinUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Join Us
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="joinUsDropdown">
+                                  <li><a class="dropdown-item" href="https://luma.com/n9g6rbip" target="_blank">Call for Speaker</a></li>
+                                  <li><a class="dropdown-item" href="https://forms.gle/ghaoste1mB9jevnp6" target="_blank">Community Partner</a></li>
+                                  <li><a class="dropdown-item" href="https://forms.gle/7ZRQe5UYKPhkedk4A" target="_blank">Sponsorship</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </nav>
+          </div>
       </div>
-    </header>
+  </header>
+
+  <style>
+      /* Ensure dropdown stays within viewport */
+      .dropdown-menu {
+          min-width: 180px;
+          max-width: 250px;
+      }
+
+      /* On mobile, dropdown appears full width below the toggle */
+      @media (max-width: 991px) {
+          .navbar-nav .dropdown-menu {
+              position: static !important;
+              transform: none !important;
+              border: none;
+              box-shadow: none;
+              padding-left: 1rem;
+          }
+      }
+
+      /* On desktop, align dropdown to the right edge */
+      @media (min-width: 992px) {
+          .dropdown-menu-end {
+              right: 0;
+              left: auto;
+          }
+      }
+  </style>
 
     <div id="hero-block" class="hero-block">
       <!-- Animated Geometric Background -->
