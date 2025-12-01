@@ -7,28 +7,27 @@ window.onload=function()
 {   
     headerAnimation(); 
 
-};
+}
 
 window.onresize=function() 
 {   
     headerAnimation(); 
 
-}; 
+}
 
 window.onscroll=function() 
-{ 
-    headerAnimation(); 
+{
+    headerAnimation();
 
-}; 
-    
+}
+
 
 function headerAnimation () {
 
     var scrollTop = window.scrollY;
-	
-	if ( scrollTop > 100 ) {	    
-	    header.classList.add('header-shrink');    
-	    	    
+
+	if ( scrollTop > 100 ) {
+	    header.classList.add('header-shrink');
 	} else {
 	    header.classList.remove('header-shrink');
 	}
@@ -46,14 +45,19 @@ const pageNavWrapper = document.getElementById('navigation');
 scrollLinks.forEach((scrollLink) => {
 
 	scrollLink.addEventListener('click', (e) => {
-		
+		// External links (https://...) should use default navigation and not be prevented.
+		const href = scrollLink.getAttribute('href');
+		if (!href || href.charAt(0) !== '#') {
+			// Let the browser handle external links normally
+			return;
+		}
+
 		e.preventDefault();
 
-		let element = document.querySelector(scrollLink.getAttribute("href"));
-		
+		let element = document.querySelector(href);
+		if (!element) return; // nothing to scroll to
+
 		const yOffset = 69; //page .header height
-		
-		//console.log(yOffset);
 		
 		const y = element.getBoundingClientRect().top + window.pageYOffset - yOffset;
 		
@@ -61,7 +65,7 @@ scrollLinks.forEach((scrollLink) => {
 		
 		
 		//Collapse mobile menu after clicking
-		if (pageNavWrapper.classList.contains('show')){
+		if (pageNavWrapper && pageNavWrapper.classList.contains('show')){
 			pageNavWrapper.classList.remove('show');
 		}
 
