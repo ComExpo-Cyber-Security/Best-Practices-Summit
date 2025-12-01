@@ -32,6 +32,7 @@
     <script defer src="assets/fontawesome/js/all.min.js"></script>
     <link id="theme-style" rel="stylesheet" href="assets/css/theme.css" />
     <link rel="stylesheet" href="assets/css/animations-3d.css" />
+    <link rel="stylesheet" href="assets/css/inline.css" />
   </head>
   <body>
   <header id="header" class="header fixed-top">
@@ -44,7 +45,6 @@
                                   class="logo-icon"
                                   src="assets/images/BPS/logo.png"
                                   alt="logo"
-                                  style="width:220px; height:auto;"
                           />
                       </a>
                   </div>
@@ -108,33 +108,6 @@
           </div>
       </div>
   </header>
-
-  <style>
-      /* Ensure dropdown stays within viewport */
-      .dropdown-menu {
-          min-width: 180px;
-          max-width: 250px;
-      }
-
-      /* On mobile, dropdown appears full width below the toggle */
-      @media (max-width: 991px) {
-          .navbar-nav .dropdown-menu {
-              position: static !important;
-              transform: none !important;
-              border: none;
-              box-shadow: none;
-              padding-left: 1rem;
-          }
-      }
-
-      /* On desktop, align dropdown to the right edge */
-      @media (min-width: 992px) {
-          .dropdown-menu-end {
-              right: 0;
-              left: auto;
-          }
-      }
-  </style>
 
     <div id="hero-block" class="hero-block">
       <!-- Animated Geometric Background -->
@@ -218,12 +191,7 @@
         </h3>
         <div
           class="section-intro single-col-max mx-auto mb-5 text-center"
-          style="
-            font-size: 1.15rem;
-            line-height: 1.9;
-            color: #2d3748;
-            font-weight: 500;
-          "
+          class="section-intro single-col-max mx-auto mb-5 text-center section-intro--lead"
         >
           Best Practices Meetup is an exclusive gathering tailored for Chief
           Information Security Officers (CISOs) and senior cybersecurity
@@ -240,7 +208,7 @@
                 <div class="d-flex align-items-center mb-3">
                   <div
                     class="icon-box bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                    style="width: 50px; height: 50px; flex-shrink: 0"
+                    class="icon-box bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3 icon-box--small"
                   >
                     <i class="fas fa-calendar-check fa-lg"></i>
                   </div>
@@ -275,7 +243,7 @@
                 <div class="d-flex align-items-center mb-3">
                   <div
                     class="icon-box bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                    style="width: 50px; height: 50px; flex-shrink: 0"
+                    class="icon-box bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3 icon-box--small"
                   >
                     <i class="fas fa-users fa-lg"></i>
                   </div>
@@ -809,47 +777,6 @@
               </div>
             </div>
           </div>
-          <div class="col-6 col-lg-3 mb-4">
-            <div class="card rounded-0">
-              <a
-                href="#modal-speaker-1"
-                data-bs-toggle="modal"
-                data-bs-target="#modal-speaker-1"
-                ><img
-                  src="assets/images/speakers/speaker-1.jpg"
-                  class="card-img-top rounded-0"
-                  alt=""
-              /></a>
-              <div class="card-body">
-                <h5 class="card-title mb-2">John Doe</h5>
-                <div class="card-text mb-3">
-                  <div class="meta">Chief Technical Officer</div>
-                  <div class="meta">Some Company</div>
-                </div>
-                <a
-                  href="#modal-speaker-1"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modal-speaker-1"
-                  >Read more &rarr;</a
-                >
-              </div>
-              <div class="card-footer text-muted">
-                <ul class="social-list list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a href="#"><i class="fa-brands fa-x-twitter fa-fw"></i></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"
-                      ><i class="fa-brands fa-linkedin-in fa-fw"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><i class="fa-brands fa-github fa-fw"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="speakers-cta text-center py-3">
           <a class="btn btn-primary btn-lg scrollto" href="#tickets-section"
@@ -886,7 +813,7 @@
               role="tab"
               aria-controls="tab-1-content"
               aria-selected="true"
-              style="border-radius: 10px"
+              class="nav-link active shadow-sm rounded-10"
             >
               <span class="heading d-block fw-bold">Day 1</span>
               <span class="meta d-block small">(Wed 15, Jan 2025)</span>

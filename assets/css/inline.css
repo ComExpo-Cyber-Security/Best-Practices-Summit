@@ -1,0 +1,72 @@
+/* assets/css/inline.css
+   Extracted styles from index.html + small utility classes to replace inline styles.
+   Keep this file human-readable; minify during your production build if desired.
+*/
+
+/* --- Extracted dropdown styles (from inline <style> in index.html) --- */
+.dropdown-menu {
+  min-width: 180px;
+  max-width: 250px;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    border: none;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
+}
+
+/* --- Small utility classes to replace common inline styles --- */
+.logo-icon {
+  width: 220px;
+  height: auto;
+}
+
+.section-intro--lead {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.icon-box--small {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 12px 28px;
+  color: #fff;
+}
+
+.card-transition {
+  transition: transform 0.3s ease;
+}
+
+.organizer-logo--max {
+  max-height: 72px;
+}
+
+.org-logo-filter {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
+
+/* End of inline.css */
+
