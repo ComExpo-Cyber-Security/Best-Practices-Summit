@@ -32,6 +32,16 @@
   height: auto;
 }
 
+/* Increase header logo for larger screens but keep responsive */
+.header .logo-icon {
+  max-height: 84px; /* increased from previous max */
+  width: auto;
+}
+
+@media (max-width: 991px) {
+  .header .logo-icon { max-height: 64px; }
+}
+
 .section-intro--lead {
   font-size: 1.15rem;
   line-height: 1.9;
@@ -231,3 +241,30 @@
 
 /* Ensure modal body grid uses the same grid behavior */
 #attendees-modal .attendees-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+/* Make header/navbar opaque (non-transparent) and add subtle separation */
+.header, .header.fixed-top, .header.transparent, .header.fixed-top.transparent {
+  background-color: #ffffff !important; /* solid white header */
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+  z-index: 1030; /* keep header above content */
+}
+
+/* Ensure nav links are readable on the white background */
+.header .main-nav .nav-link {
+  color: #1a202c !important;
+}
+/* Ensure toggler icon or any icon text remains visible */
+.header .main-nav .navbar-toggler-icon,
+.header .main-nav .navbar-toggler {
+  color: #1a202c !important;
+  border-color: rgba(26,32,44,0.08) !important;
+}
+
+/* Tweak toggler icon visibility for Bootstrap that uses background-image */
+.header .navbar-toggler-icon {
+  background-image: none !important; /* prefer default icon styling; if theme provides an image, this keeps it visible */
+}

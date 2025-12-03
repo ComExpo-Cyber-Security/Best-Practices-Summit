@@ -34,84 +34,7 @@
     <link rel="stylesheet" href="assets/css/inline.css" />
   </head>
   <body>
-  <header id="header" class="header fixed-top">
-      <div class="branding">
-          <div class="container-fluid">
-              <nav class="main-nav navbar navbar-expand-lg">
-                  <div class="site-logo">
-                      <a class="scrollto" href="#hero-block">
-                          <img
-                                  class="logo-icon"
-                                  src="assets/images/BPS/logo.png"
-                                  alt="logo"
-                          />
-                      </a>
-                  </div>
-
-                  <button
-                          class="navbar-toggler"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#navigation"
-                          aria-controls="navigation"
-                          aria-expanded="false"
-                          aria-label="Toggle navigation"
-                  >
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div
-                          id="navigation"
-                          class="navbar-collapse collapse justify-content-lg-end me-lg-3"
-                  >
-                      <ul class="nav navbar-nav">
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#about-section">About</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#speakers-section"
-                              >Speakers</a
-                              >
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#schedule-section"
-                              >Schedule</a
-                              >
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#tickets-section"
-                              >Registration</a
-                              >
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#badge-section"
-                              >Create Badge</a
-                              >
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#venue-section">Venue</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link scrollto" href="#sponsors-section"
-                              >Sponsors</a
-                              >
-                          </li>
-                          <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="joinUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Join Us
-                              </a>
-                              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="joinUsDropdown">
-                                  <li><a class="dropdown-item" href="https://luma.com/n9g6rbip" target="_blank">Call for Speaker</a></li>
-                                  <li><a class="dropdown-item" href="https://forms.gle/ghaoste1mB9jevnp6" target="_blank">Community Partner</a></li>
-                                  <li><a class="dropdown-item" href="https://forms.gle/7ZRQe5UYKPhkedk4A" target="_blank">Sponsorship</a></li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </div>
-              </nav>
-          </div>
-      </div>
-  </header>
+  <div data-include="assets/includes/header.html"></div>
 
     <div id="hero-block" class="hero-block">
       <!-- Animated Geometric Background -->
@@ -1637,53 +1560,7 @@
       </div>
     </section>
 
-    <footer class="footer py-5 theme-bg-primary">
-      <div class="container text-center">
-        <ul class="social-list list-inline mb-4">
-          <li class="list-inline-item me-3">
-            <a href="https://www.facebook.com/HackersMeetup/"
-              ><i class="fa-brands fa-facebook fa-fw"></i
-            ></a>
-          </li>
-          <li class="list-inline-item me-3">
-            <a href="https://x.com/hackers_meetup"
-              ><i class="fa-brands fa-x-twitter fa-fw"></i
-            ></a>
-          </li>
-          <li class="list-inline-item me-3">
-            <a href="https://www.linkedin.com/in/thehackersmeetup/"
-              ><i class="fa-brands fa-linkedin fa-fw"></i
-            ></a>
-          </li>
-          <li class="list-inline-item me-3">
-            <a href="https://www.instagram.com/thehackersmeetup/"
-              ><i class="fa-brands fa-instagram fa-fw"></i
-            ></a>
-          </li>
-        </ul>
-
-        <!-- Added contact details -->
-        <div class="contact-info text-white mb-4">
-          <p class="mb-1"><strong>Contact us:</strong> <a href="tel:+918980808222" class="text-white">+91 8980808222</a></p>
-          <p class="mb-0"><strong>Email us:</strong> <a href="mailto:thehackersmeetup@gmail.com" class="text-white">thehackersmeetup@gmail.com</a></p>
-        </div>
-
-        <ul class="footer-links list-inline mx-auto mb-4">
-          <li class="list-inline-item"><a href="#">Code of Conduct</a></li>
-          <li class="list-inline-item">|</li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item">|</li>
-          <li class="list-inline-item me-0"><a href="#">Privacy</a></li>
-        </ul>
-
-        <small class="copyright"
-          >Designed with <i class="fas fa-heart" style="color: #ec645e"></i> by
-          <a href="https://thehackersmeetup.org/" target="_blank"
-            >The Hackers Meetup</a
-          >
-        </small>
-      </div>
-    </footer>
+    <div data-include="assets/includes/footer.html"></div>
 
     <div
       class="modal modal-speaker modal-speaker-1"
@@ -1793,5 +1670,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/animations-3d.js"></script>
     <script src="assets/js/badge-generator.js"></script>
+    <script src="assets/js/include-partials.js"></script>
   </body>
 </html>
