@@ -92,9 +92,7 @@
             HealthTech & IT Leaders
           </div>
           <div class="hero-cta">
-            <a class="btn btn-primary btn-lg" href="https://luma.com/n9g6rbip"
-              >Request Invite</a
-            >
+            <a class="btn btn-primary btn-lg" href="#" data-invite-disabled="true" aria-disabled="true" tabindex="-1">Request Invite</a>
           </div>
         </div>
       </div>
@@ -459,7 +457,10 @@
         <div class="about-cta text-center mb-5">
           <a
             class="btn btn-secondary btn-lg scrollto mb-5"
-            href="https://luma.com/n9g6rbip"
+            href="#"
+            data-invite-disabled="true"
+            aria-disabled="true"
+            tabindex="-1"
             >Request Your Invite</a
           >
         </div>
@@ -684,7 +685,10 @@
         <div class="speakers-cta text-center py-3">
           <a
             class="btn btn-primary btn-lg scrollto"
-            href="https://luma.com/n9g6rbip"
+            href="#"
+            data-invite-disabled="true"
+            aria-disabled="true"
+            tabindex="-1"
             >Request Invite</a
           >
         </div>
@@ -998,8 +1002,11 @@
             class="btn btn-primary btn-lg me-md-2 d-block d-md-inline-block mb-3 mb-md-0"
             >Download Schedule</a
           ><a
-            href="https://luma.com/n9g6rbip"
+            href="#"
             class="btn btn-secondary btn-lg d-block d-md-inline-block scrollto"
+            data-invite-disabled="true"
+            aria-disabled="true"
+            tabindex="-1"
             >Request Invite</a
           >
         </div>
@@ -1179,7 +1186,7 @@
 
               <div class="text-center mt-4">
                 <a
-                  href="https://luma.com/n9g6rbip"
+                  href="#"
                   class="btn btn-lg text-white"
                   style="
                     background: linear-gradient(
@@ -1190,6 +1197,9 @@
                     border: none;
                     padding: 12px 28px;
                   "
+                  data-invite-disabled="true"
+                  aria-disabled="true"
+                  tabindex="-1"
                   >Request Invite / Buy Ticket</a
                 >
               </div>
@@ -1622,5 +1632,24 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/animations-3d.js"></script>
     <script src="assets/js/include-partials.js"></script>
+
+    <script>
+      // Prevent clicks on disabled invite buttons across the site
+      document.addEventListener('DOMContentLoaded', function () {
+        const disabledInviteEls = document.querySelectorAll('[data-invite-disabled="true"]');
+        disabledInviteEls.forEach(function (el) {
+          // make inert and accessible
+          el.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            return false;
+          });
+          // add a disabled look if not already
+          el.classList.add('disabled');
+          el.setAttribute('aria-disabled', 'true');
+          el.setAttribute('tabindex', '-1');
+        });
+      });
+    </script>
   </body>
 </html>
