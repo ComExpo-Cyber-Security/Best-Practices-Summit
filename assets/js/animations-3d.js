@@ -6,6 +6,9 @@
 (function () {
   "use strict";
 
+  // Feature flag - set to true to re-enable animations
+  window.__ENABLE_ANIMATIONS__ = window.__ENABLE_ANIMATIONS__ || false;
+
   // Scroll-triggered animations
   function initScrollAnimations() {
     const observerOptions = {
@@ -203,16 +206,29 @@
 
   // Initialize all effects when DOM is ready
   document.addEventListener("DOMContentLoaded", function () {
-    initScrollAnimations();
-    initParallax();
-    animateCounters();
-    initRippleEffect();
-    initCardTilt();
-    initGlowEffect();
+    // Only initialize animations if the feature flag is enabled
+    if (window.__ENABLE_ANIMATIONS__) {
+      initScrollAnimations();
+      initParallax();
+      animateCounters();
+      initRippleEffect();
+      initCardTilt();
+      initGlowEffect();
+    } else {
+      // If animations disabled, ensure elements that relied on JS are reset
+      document.querySelectorAll('.section, .card').forEach(el => {
+        el.style.opacity = '';
+        el.style.animationDelay = '';
+        el.style.boxShadow = '';
+        el.classList.remove('fade-in-up');
+      });
+    }
+
+    // Always initialize countdown regardless of animations toggle
     initCountdown();
 
-    // Add stagger animation to speaker cards
-    const speakerCards = document.querySelectorAll(".speakers-section .card");
+    // Add stagger animation to speaker cards (class only; no animation will run when disabled)
+    const speakerCards = document.querySelectorAll('.speakers-section .card');
     speakerCards.forEach((card, index) => {
       card.classList.add(`stagger-${(index % 6) + 1}`);
     });
@@ -222,34 +238,4 @@
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        }
-      });
-    });
-  });
-
-  // Add CSS for ripple effect dynamically
-  const style = document.createElement("style");
-  style.textContent = `
-        .ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple-animation 0.6s ease-out;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-    `;
-  document.head.appendChild(style);
-})();
+        if
