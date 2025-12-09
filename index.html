@@ -98,6 +98,21 @@
       </div>
     </div>
 
+    <!-- Flying badge popup (appears on page load) -->
+    <div id="badge-fly" class="badge-fly" role="dialog" aria-label="Create Badge" aria-hidden="true">
+      <button id="badge-fly-close" class="badge-fly-close" aria-label="Close">&times;</button>
+      <a id="badge-fly-link" class="badge-fly-link" href="create-badge.html" role="link">
+        <div class="badge-fly-content">
+          <div class="badge-fly-icon"><i class="fas fa-id-badge" aria-hidden="true"></i></div>
+          <div class="badge-fly-text">
+            <div class="badge-fly-title">Create Your Badge</div>
+            <div class="badge-fly-sub">Generate your attendee badge — Share on your socials</div>
+          </div>
+          <div class="badge-fly-cta"><button class="btn btn-sm btn-primary">Create</button></div>
+        </div>
+      </a>
+    </div>
+
     <div class="stats-block theme-bg-primary text-white py-4 text-center">
       <div class="container">
         <div class="row">
@@ -1622,6 +1637,27 @@
           el.classList.add('disabled');
           el.setAttribute('aria-disabled', 'true');
           el.setAttribute('tabindex', '-1');
+        });
+      });
+
+      // Badge flying popup logic
+      document.addEventListener('DOMContentLoaded', function () {
+        const badgeFlyEl = document.getElementById('badge-fly');
+        const badgeFlyCloseBtn = document.getElementById('badge-fly-close');
+
+        // Show the badge flying popup on page load
+        badgeFlyEl.style.display = 'flex';
+
+        // Close button functionality
+        badgeFlyCloseBtn.addEventListener('click', function () {
+          badgeFlyEl.style.display = 'none';
+        });
+
+        // Close the popup if the user clicks outside of it
+        window.addEventListener('click', function (event) {
+          if (event.target === badgeFlyEl) {
+            badgeFlyEl.style.display = 'none';
+          }
         });
       });
     </script>

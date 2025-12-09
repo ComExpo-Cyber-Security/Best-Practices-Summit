@@ -669,3 +669,102 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 /* Keep attendees loader text centered (preserve existing intent) */
 #attendees-loader { text-align: center; }
+
+/* ===== Flying badge popup (appears on home page load) ===== */
+#badge-fly {
+  display: none; /* controlled via JS */
+  position: fixed;
+  right: 20px;
+  bottom: 28px;
+  z-index: 2000;
+  min-width: 320px;
+  max-width: 420px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), #ffffff);
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(3,7,18,0.25);
+  border: 1px solid rgba(10,20,40,0.06);
+  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  animation: badge-fly-in 600ms cubic-bezier(.2,.9,.2,1) both;
+  -webkit-font-smoothing: antialiased;
+}
+
+#badge-fly[aria-hidden="true"] {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+}
+
+@keyframes badge-fly-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) translateX(16px) scale(0.96);
+  }
+  60% {
+    transform: translateY(-8px) translateX(0) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+
+.badge-fly-content {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.badge-fly-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+  color: #fff;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.badge-fly-text { flex: 1; min-width: 0; }
+.badge-fly-title { font-weight: 700; color: #0f1724; font-size: 1rem; }
+.badge-fly-sub { font-size: 0.85rem; color: #475569; }
+
+.badge-fly-cta { margin-left: 8px; }
+.badge-fly-link { text-decoration: none; color: inherit; display: block; }
+
+/* Close button */
+.badge-fly-close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(3,7,18,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #475569;
+}
+.badge-fly-close:focus { outline: 3px solid rgba(102,126,234,0.18); }
+
+/* Small screens: make it less intrusive */
+@media (max-width: 575px) {
+  #badge-fly { right: 12px; left: 12px; bottom: 16px; min-width: auto; max-width: calc(100% - 24px); }
+  .badge-fly-content { gap: 10px; }
+  .badge-fly-icon { width: 44px; height: 44px; }
+  .badge-fly-title { font-size: 0.95rem; }
+}
+
+/* Visually-hidden helper for a11y should we need it */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
