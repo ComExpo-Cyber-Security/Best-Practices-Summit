@@ -433,7 +433,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 }
 
 .hero-organizer-logo {
-  height: 40px; /* increased from 28px */
+  height: 48px; /* increased so organizer icons in hero are more visible */
   width: auto;
   display: block;
   filter: brightness(1.05) contrast(1.02);
@@ -447,7 +447,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 @media (max-width: 767px) {
   .hero-block .container { align-items: center; padding-top: 18px; padding-bottom: 18px; }
   .hero-cred { gap: 0.5rem; }
-  .hero-organizer-logo { height: 32px; padding: 3px 4px; }
+  .hero-organizer-logo { height: 40px; padding: 3px 4px; }
 }
 
 /* Hero credibility text styling (replaces logos */
@@ -474,7 +474,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   margin-left: 0.5rem; /* space after label */
 }
 .hero-cred-logos img {
-  height: 28px;
+  height: 36px; /* slightly larger so logos are readable */
   width: auto;
   display: inline-block;
   vertical-align: middle;
@@ -482,7 +482,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   opacity: 0.95;
 }
 @media (min-width: 992px) {
-  .hero-cred-logos img { height: 32px; }
+  .hero-cred-logos img { height: 44px; }
 }
 @media (max-width: 575px) {
   .hero-cred-label { display: block; margin-bottom: 0.35rem; }
@@ -514,17 +514,27 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 /* Organizer logos: clean, with subtle drop shadow */
 .organizer-logo {
   filter: none !important;
-  max-height: 72px !important;
+  max-height: 96px !important; /* increased so organizer logos appear larger */
 }
 
 /* Sponsors logos: neutralize harsh contrast */
 .logo-item img {
   filter: grayscale(0.06) contrast(0.98) brightness(1.02);
   transition: transform 160ms ease, filter 160ms ease;
+  /* larger default constraint so sponsor logos are more visible */
+  max-height: 80px; /* base */
 }
 .logo-item img:hover {
   transform: translateY(-4px) scale(1.02);
   filter: grayscale(0) contrast(1) brightness(1.03);
+}
+
+/* Responsive increases for sponsor logos */
+@media (min-width: 768px) {
+  .logo-item img { max-height: 100px; }
+}
+@media (min-width: 1200px) {
+  .logo-item img { max-height: 120px; }
 }
 
 /* Buttons across site: consistent primary look */
