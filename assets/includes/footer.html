@@ -1,33 +1,61 @@
-<footer class="footer py-5 theme-bg-primary">
-  <div class="container text-center">
-    <ul class="social-list list-inline mb-4">
-      <li class="list-inline-item me-3">
-        <a href="https://www.facebook.com/HackersMeetup/"><i class="fa-brands fa-facebook fa-fw"></i></a>
-      </li>
-      <li class="list-inline-item me-3">
-        <a href="https://x.com/hackers_meetup"><i class="fa-brands fa-x-twitter fa-fw"></i></a>
-      </li>
-      <li class="list-inline-item me-3">
-        <a href="https://www.linkedin.com/in/thehackersmeetup/"><i class="fa-brands fa-linkedin fa-fw"></i></a>
-      </li>
-      <li class="list-inline-item me-3">
-        <a href="https://www.instagram.com/thehackersmeetup/"><i class="fa-brands fa-instagram fa-fw"></i></a>
-      </li>
-    </ul>
+<footer class="footer py-5 theme-bg-primary text-white">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-4">
+        <div class="footer-brand">
+          <a href="index.html#hero-block" class="d-inline-block mb-3">
+            <img src="assets/images/BPS/logo.png" alt="BPS logo" style="max-height:48px" />
+          </a>
+          <p class="mb-2 text-white" style="max-width:320px">Best Practices Summit — CXO power networking for cybersecurity, FinTech, HealthTech and IT leaders.</p>
+          <ul class="social-list list-inline mb-0">
+            <li class="list-inline-item me-2"><a href="https://www.facebook.com/HackersMeetup/" class="text-white"><i class="fa-brands fa-facebook fa-fw"></i></a></li>
+            <li class="list-inline-item me-2"><a href="https://x.com/hackers_meetup" class="text-white"><i class="fa-brands fa-x-twitter fa-fw"></i></a></li>
+            <li class="list-inline-item me-2"><a href="https://www.linkedin.com/in/thehackersmeetup/" class="text-white"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/thehackersmeetup/" class="text-white"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="contact-info text-white mb-4">
-      <p class="mb-1"><strong>Contact us:</strong> <a href="tel:+918980808222" class="text-white">+91 8980808222</a></p>
-      <p class="mb-0"><strong>Email us:</strong> <a href="mailto:thehackersmeetup@gmail.com" class="text-white">thehackersmeetup@gmail.com</a></p>
+      <div class="col-12 col-md-4">
+        <div class="card bg-transparent border-0 p-3 p-md-4">
+          <div class="card-body p-0">
+            <h5 class="card-title text-white mb-3">Contact</h5>
+            <div class="d-flex align-items-center contact-info text-white mb-2">
+              <img src="assets/images/attendees/Viral.png" alt="Viral Parmar" class="rounded-circle me-3" style="width:64px; height:64px; object-fit:cover;" />
+              <div>
+                <p class="mb-1"><strong>Viral Parmar</strong><br /><small class="text-white">Community & Partnerships</small></p>
+                <p class="mb-1 small">Phone: <a href="tel:+918980808222" class="text-white text-decoration-none">+91 8980808222</a></p>
+                <p class="mb-0 small">Email: <a href="mailto:thehackersmeetup@gmail.com" class="text-white text-decoration-none">thehackersmeetup@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="footer-links">
+          <h5 class="text-white mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="code-of-conduct.html" class="text-white">Code of Conduct</a></li>
+            <li><a href="terms.html" class="text-white">Terms</a></li>
+            <li><a href="privacy.html" class="text-white">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <ul class="footer-links list-inline mx-auto mb-4">
-      <li class="list-inline-item"><a href="code-of-conduct.html">Code of Conduct</a></li>
-      <li class="list-inline-item">|</li>
-      <li class="list-inline-item"><a href="terms.html">Terms</a></li>
-      <li class="list-inline-item">|</li>
-      <li class="list-inline-item me-0"><a href="privacy.html">Privacy</a></li>
-    </ul>
+    <hr class="border-light opacity-25 my-4" />
 
-    <small class="copyright">Designed with <i class="fas fa-heart" style="color: #ec645e"></i> by <a href="https://thehackersmeetup.org/" target="_blank">The Hackers Meetup</a></small>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <small class="text-white">© <span id="currentYear"></span> Best Practices Summit</small>
+      <small class="text-white">Designed with <i class="fas fa-heart" style="color: #ec645e"></i> by <a href="https://thehackersmeetup.org/" target="_blank" class="text-white">The Hackers Meetup</a></small>
+    </div>
   </div>
+
+  <script>
+    // populate year
+    (function(){
+      try{document.getElementById('currentYear').textContent=new Date().getFullYear()}catch(e){}
+    })();
+  </script>
 </footer>

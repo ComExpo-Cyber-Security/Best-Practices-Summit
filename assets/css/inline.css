@@ -541,7 +541,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 /* Footer and other small elements: muted */
 .footer, .footer a, .footer p {
-  color: #94a3b8 !important;
+  /* make footer text fully white for better contrast */
+  color: #ffffff !important;
 }
 
 /* Accessibility: ensure sufficient contrast for hero text */
@@ -557,7 +558,75 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   .hero-text-block .hero-intro { font-size: 1.05rem !important; }
 }
 
-/* End professional visuals */
+/* Footer: force columns to align to top so headings line up */
+.footer .row {
+  align-items: flex-start; /* ensure left/center/right columns start at same vertical position */
+}
+
+/* Make footer columns behave as vertical stacks so their children align predictably */
+.footer .col-md-4, .footer .col-12.col-md-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure content inside each column starts at the top with consistent spacing */
+.footer .footer-brand,
+.footer .card,
+.footer .footer-links {
+  margin-top: 0;
+}
+
+/* Contact card: don't auto-center — keep it at the top of its column */
+.footer .card {
+  align-self: flex-start;
+  /* keep visual style but tighten spacing slightly */
+  margin-bottom: 0.5rem;
+  /* override bootstrap paddings applied via classes (p-3 / p-md-4) for consistent footer alignment */
+  padding: 1rem !important; /* modest padding restored for balance */
+}
+
+/* Ensure the card-body doesn't add extra vertical offset */
+.footer .card .card-body { padding: 0 !important; }
+
+/* Make direct children of footer columns start at top (remove accidental top margins) */
+.footer .col-md-4 > * {
+  margin-top: 0 !important;
+}
+
+/* Ensure footer-links sit at the top of their column and don't get pushed down */
+.footer .footer-links {
+  align-self: flex-start;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Ensure list items in quick links have consistent spacing */
+.footer .footer-links ul li { margin-bottom: 0.5rem; }
+
+/* Make footer logo more visible on dark/purple backgrounds:
+   Use a white panel so PNGs with transparent areas show clearly. Add subtle border and refined shadow.
+*/
+.footer .footer-brand a img,
+.footer .footer-brand .logo-icon {
+  max-height: 56px;
+  display: inline-block;
+  background: #ffffff; /* white panel for contrast */
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Reduce logo padding on very small screens to avoid overflow */
+@media (max-width: 575px) {
+  .footer .footer-brand a img,
+  .footer .footer-brand .logo-icon { padding: 4px 6px; max-height: 48px; }
+}
+
+/* Make sure footer headings are consistent */
+.footer h5, .footer h6 { margin-top: 0; }
 
 /* Disable common animation utility classes (global override) */
 .fade-in-up,
