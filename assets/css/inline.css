@@ -778,3 +778,47 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 /* Visually-hidden helper for a11y should we need it */
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+@media (max-width: 991px) {
+  /* Keep the header solid white on mobile (user requested) and preserve the desktop white header look */
+  .header, .header.fixed-top, .header.transparent, .header.fixed-top.transparent {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  }
+
+  /* Nav links should remain the dark color used on desktop for readability */
+  .header .main-nav .nav-link {
+    color: #1a202c !important;
+  }
+
+  /* Collapsed mobile menu: match header (white) and add subtle elevation so it sits above hero images */
+  .navbar-collapse.collapse {
+    background: #ffffff; /* white panel */
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.06);
+  }
+
+  /* Dropdowns inside the mobile menu should match the white panel */
+  .navbar-nav .dropdown-menu {
+    background: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.06) !important;
+    padding-left: 0 !important;
+  }
+
+  /* Make the toggler and its icon dark so it's visible on the white header */
+  .header .main-nav .navbar-toggler,
+  .header .main-nav .navbar-toggler-icon {
+    color: #1a202c !important;
+    border-color: rgba(26,32,44,0.08) !important;
+  }
+
+  /* Use the SVG which follows currentColor (defined on .header) so the icon adapts to the toggler color */
+  .navbar-toggler-icon,
+  .header .navbar-toggler-icon {
+    background-image: var(--bs-navbar-toggler-icon-bg) !important;
+    filter: none !important;
+  }
+}
