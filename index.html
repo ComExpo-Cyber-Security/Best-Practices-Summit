@@ -1515,7 +1515,7 @@
               "description": "Purchase: " + name,
               "image": "assets/favicon_io/android-chrome-192x192.png",
               "handler": function (response) {
-                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                window.location.href = "success.html?payment_id=" + response.razorpay_payment_id;
               },
               "prefill": {
                 "name": "",
@@ -1531,11 +1531,11 @@
             options.amount = amount;
 
             var rzp = new Razorpay(options);
-            
+
             // Add error handler for initialization failure
-            rzp.on('payment.failed', function (response){
-                console.error('Payment Failed', response.error);
-                alert('Payment Failed: ' + response.error.description);
+            rzp.on('payment.failed', function (response) {
+              console.error('Payment Failed', response.error);
+              alert('Payment Failed: ' + response.error.description);
             });
 
             rzp.open();
