@@ -1493,37 +1493,56 @@
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var options = {
-        "key": "rzp_test_S82Mk1ju8qTCED",
-        "currency": "INR",
-        "name": "Best Practices Summit",
-        "description": "Ticket Purchase",
-        "image": "assets/favicon_io/android-chrome-192x192.png",
-        "handler": function (response) {
-          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-        },
-        "prefill": {
-          "name": "",
-          "email": "",
-          "contact": ""
-        },
-        "theme": {
-          "color": "#3399cc"
-        }
-      };
-
       document.querySelectorAll('.buy-ticket-btn').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
-          var amount = this.getAttribute('data-amount');
-          var name = this.getAttribute('data-name');
 
-          var ops = Object.assign({}, options);
-          ops.amount = amount;
-          ops.description = "Purchase: " + name;
+          // Check if Razorpay script is loaded
+          if (typeof Razorpay === 'undefined') {
+            console.error('Razorpay SDK not loaded');
+            alert('Payment system is currently unavailable. Please check your connection or try again later.');
+            return;
+          }
 
-          var rzp = new Razorpay(ops);
-          rzp.open();
+          try {
+            var amount = this.getAttribute('data-amount');
+            var name = this.getAttribute('data-name');
+
+            var options = {
+              "key": "rzp_test_S82Mk1ju8qTCED",
+              "currency": "INR",
+              "name": "Best Practices Summit",
+              "description": "Purchase: " + name,
+              "image": "assets/favicon_io/android-chrome-192x192.png",
+              "handler": function (response) {
+                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+              },
+              "prefill": {
+                "name": "",
+                "email": "",
+                "contact": ""
+              },
+              "theme": {
+                "color": "#3399cc"
+              }
+            };
+
+            // Add amount specifically for this transaction
+            options.amount = amount;
+
+            var rzp = new Razorpay(options);
+            
+            // Add error handler for initialization failure
+            rzp.on('payment.failed', function (response){
+                console.error('Payment Failed', response.error);
+                alert('Payment Failed: ' + response.error.description);
+            });
+
+            rzp.open();
+          } catch (err) {
+            console.error('Razorpay execution error:', err);
+            alert('An error occurred while initializing payment. Please try again.');
+          }
         });
       });
     });
