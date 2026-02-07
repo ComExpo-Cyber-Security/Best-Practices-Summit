@@ -243,13 +243,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isLandscape) {
       // Landscape layout - 1192x700 - Frame 31551 design - FIXED
-      photoSize = 400; // Much larger frame to match reference
-      photoX = width - 250; // Position properly on right side
-      photoY = height / 2 + 20; // Center vertically with slight offset
-      nameY = 280; // Left side positioning for name
-      roleY = 340; // Role text below name
-      detailsY = 400; // Event details
-      footerHeight = 70;
+      photoSize = 500; // Larger frame for right side
+      photoX = width - 320; // Position properly on right side
+      photoY = height / 2; // Center vertically
+      nameY = 360; // Lowered for better vertical profile
+      roleY = 420; // Lowered
+      detailsY = 490; // Lowered
+      footerHeight = 67; // Official height
     } else if (isSquare) {
       // Square layout - 564x700 - UPDATED: larger centered frame with top margin
       photoSize = 350; // Much larger frame to match reference
@@ -273,9 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Logo positioning - will be drawn AFTER the photo frame to appear on top
     let bpsLogoWidth, bpsLogoHeight, bpsLogoX, bpsLogoY;
     if (isLandscape) {
-      bpsLogoWidth = 200;
-      bpsLogoHeight = 65;
-      bpsLogoX = 60; // Left side positioning
+      bpsLogoWidth = 303;
+      bpsLogoHeight = 75;
+      bpsLogoX = 110; // Increased padding to 110px
       bpsLogoY = 60; // Top positioning
     } else if (isSquare) {
       bpsLogoWidth = 233; // Keep square unchanged
@@ -293,9 +293,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // THM Logo positioning
     let thmLogoWidth, thmLogoHeight, thmLogoX, thmLogoY;
     if (isLandscape) {
-      thmLogoWidth = 140;
-      thmLogoHeight = 100;
-      thmLogoX = width - thmLogoWidth - 60; // Right side positioning
+      thmLogoWidth = 120;
+      thmLogoHeight = 87;
+      thmLogoX = width - thmLogoWidth - 620; // Right side positioning
       thmLogoY = 60; // Top positioning
     } else if (isSquare) {
       thmLogoWidth = 102; // Keep square unchanged
@@ -334,15 +334,15 @@ document.addEventListener("DOMContentLoaded", function () {
         frameHeight = 416;
         cornerRadius = 25; // Estimated corner radius for portrait frame
       } else {
-        // Landscape - keep original proportions
-        frameWidth = photoSize;
-        frameHeight = photoSize;
-        cornerRadius = 15;
+        // Landscape - Updated to 485x572
+        frameWidth = 485;
+        frameHeight = 572;
+        cornerRadius = 30;
       }
 
       // The frame SVG has a stroke border - we need to clip inside it
       // Border offset accounts for the stroke width of the frame path
-      const borderOffset = 5; // Reduced to minimize padding while preventing overflow
+      const borderOffset = 7; // Balanced offset for landscape to prevent downside spillover
 
       // Clipping dimensions - smaller to stay inside the frame border
       const clipWidth = frameWidth - borderOffset * 2;
@@ -429,14 +429,8 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (selectedLayout === "portrait") {
         ctx.drawImage(frameImage, photoX - 450 / 2, photoY - 416 / 2, 450, 416);
       } else {
-        // Landscape
-        ctx.drawImage(
-          frameImage,
-          photoX - photoSize / 2,
-          photoY - photoSize / 2,
-          photoSize,
-          photoSize,
-        );
+        // Landscape - Updated to 485x572
+        ctx.drawImage(frameImage, photoX - 485 / 2, photoY - 572 / 2, 485, 572);
       }
     } else {
       // Fallback: rounded rectangular frame if frame image not loaded
@@ -451,19 +445,19 @@ document.addEventListener("DOMContentLoaded", function () {
           ? 278
           : selectedLayout === "portrait"
             ? 450
-            : photoSize;
+            : 485;
       const frameH =
         selectedLayout === "square"
           ? 306
           : selectedLayout === "portrait"
             ? 416
-            : photoSize;
+            : 572;
       const radius =
         selectedLayout === "square"
           ? 20
           : selectedLayout === "portrait"
             ? 25
-            : 15;
+            : 30;
 
       // Draw rounded rectangle
       ctx.beginPath();
@@ -514,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Name positioning - fixed for landscape and portrait
-    let nameX = isLandscape ? 60 : width / 2; // Left side for landscape, centered for others
+    let nameX = isLandscape ? 110 : width / 2; // 110px padding for landscape, centered for others
 
     // Name text with shadow
     ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
@@ -572,7 +566,7 @@ document.addEventListener("DOMContentLoaded", function () {
       roleGradient.addColorStop(1, "#FBE8F7");
       ctx.fillStyle = roleGradient;
 
-      const roleFontSize = isLandscape ? 32 : 42; // 42px for portrait
+      const roleFontSize = isLandscape ? 42 : 42; // 42px for both landscape and portrait
       ctx.font = `bold ${roleFontSize}px "Prompt", "Segoe UI", Arial, sans-serif`;
       ctx.textAlign = isLandscape ? "left" : "center";
       ctx.fillText(roleStatusText[role], nameX, roleY);
@@ -580,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event details section - remove date/time from portrait and landscape
     ctx.textAlign = isLandscape ? "left" : isSquare ? "center" : "center"; // Keep square centered
-    const detailsX = isLandscape ? 60 : isSquare ? width / 2 : width / 2; // Keep square centered
+    const detailsX = isLandscape ? 110 : isSquare ? width / 2 : width / 2; // 110px padding for landscape
 
     // Event title - keep square logic as is, remove date/time from others
     ctx.fillStyle = "#ffffff";
@@ -592,14 +586,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // No date and location for square layout
     } else {
       // Portrait and landscape layouts - NO DATE/TIME
-      const eventTitleSize = isLandscape ? 28 : 42; // 42px for portrait
+      const eventTitleSize = isLandscape ? 42 : 42; // 42px for both
       ctx.font = `bold ${eventTitleSize}px "Prompt", "Segoe UI", Arial, sans-serif`;
 
       // For portrait, constrain to 494px max width
       if (!isLandscape) {
         ctx.fillText("BEST PRACTICES SUMMIT", detailsX, detailsY, 494);
       } else {
-        ctx.fillText("BEST PRACTICES SUMMIT", detailsX, detailsY);
+        ctx.fillText("BEST PRACTICES SUMMIT", detailsX, detailsY, 494);
       }
       // REMOVED: Date and location for portrait and landscape
     }
@@ -633,12 +627,14 @@ document.addEventListener("DOMContentLoaded", function () {
           footerHeight,
         );
       } else if (isLandscape) {
-        // Landscape layout - footer with side padding
-        const footerY = height - footerHeight;
-        const footerX = 40; // Side padding for landscape
-        const footerW = width - 80; // Width with padding (40px each side)
+        // Landscape layout - footer with side padding and bottom margin
+        const bottomMargin = 75;
+        const footerW = 529; // Fixed width
+        const footerH = 86; // Fixed height
+        const footerY = height - footerH - bottomMargin;
+        const footerX = 70; // Side padding for landscape
 
-        ctx.drawImage(footerImage, footerX, footerY, footerW, footerHeight);
+        ctx.drawImage(footerImage, footerX, footerY, footerW, footerH);
       } else {
         // Portrait layout - footer with side padding and bottom margin
         const bottomMargin = 20; // Bottom margin for portrait
