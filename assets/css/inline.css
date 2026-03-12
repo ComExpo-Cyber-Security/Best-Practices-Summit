@@ -584,6 +584,11 @@ h4,
   max-height: 96px !important; /* increased so organizer logos appear larger */
 }
 
+/* GTU Ventures logo: larger size for better visibility */
+.organizer-logo.gtu-ventures-logo {
+  max-height: 150px !important;
+}
+
 /* Sponsors logos: neutralize harsh contrast */
 .logo-item img {
   filter: grayscale(0.06) contrast(0.98) brightness(1.02);
