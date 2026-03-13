@@ -13406,7 +13406,7 @@ a.theme-link:hover {
   position: absolute;
   width: 3px;
   height: 100%;
-  left: 196px;
+  left: 236px;
   top: 5px;
 }
 .schedule-tab-content .tab-pane.no-timeline:after {
@@ -13424,7 +13424,7 @@ a.theme-link:hover {
   display: inline-block;
   position: absolute;
   z-index: 5;
-  left: 190px;
+  left: 230px;
   top: 5px;
   width: 16px;
   height: 16px;
@@ -13436,7 +13436,7 @@ a.theme-link:hover {
   position: absolute;
   left: 0;
   top: 0;
-  width: 200px;
+  width: 220px;
   padding: 1rem;
   padding-top: 0;
   text-align: center;
@@ -13446,6 +13446,7 @@ a.theme-link:hover {
   font-size: 1.25rem;
   color: #7c3aed;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
 .schedule-tab-content .item .meta .profile {
   margin-top: 0.5rem;
@@ -13470,7 +13471,7 @@ a.theme-link:hover {
   width: 80px;
 }
 .schedule-tab-content .item .content {
-  padding-left: 240px;
+  padding-left: 260px;
 }
 .schedule-tab-content .item .content .title {
   font-size: 1.25rem;
